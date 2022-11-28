@@ -76,7 +76,7 @@ if __name__ == '__main__':
     parser.add_argument('-m', '--mythics', action='store', type=int, default=0)
     parser.add_argument('-u', '--uncommons', action='store', type=int, default=3)
     parser.add_argument('-c', '--commons', action='store', type=int, default=7)
-    parser.add_argument('--randoms', action='store', type=int, default=2, help="Adds cards of random rarity. Used to simulate foil/alt art/transformers/ whatever else WotC decides we need. Can also be used to generate _really_ random packs")
+    parser.add_argument('-z', '--randoms', action='store', type=int, default=2, help="Adds cards of random rarity. Used to simulate foil/alt art/transformers/ whatever else WotC decides we need. Can also be used to generate _really_ random packs")
     parser.add_argument('-p', '--rares-plus', action='store', type=int, default = 0, help="Rare plus slot. Will be either a rare or mythic")
     # TODO
     # parser.add_argument('--mythic-chance', type=int, default=5, help="Percent chance of a mythic. Requires -p")

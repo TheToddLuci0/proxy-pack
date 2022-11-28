@@ -35,5 +35,5 @@ The defaults are for a 30a pack, so let's see if we get a lotus in our simulated
 ```proxypack.py 30a```
 
 #### REALLY random packs
-`-r` grabs rarities at random, so let's get chaotic!
-```proxypack.py 30a one lea 2ed -r 15```
+`-z` grabs rarities at random, so let's get chaotic!
+```proxypack.py 30a one lea 2ed -z 15```
