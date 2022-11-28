@@ -6,6 +6,7 @@ import itertools
 from reportlab.pdfgen import canvas
 from PIL import Image
 from urllib.request import urlopen, Request
+import json
 
 SCRYFALL_BASE = 'https://api.scryfall.com/'
 
@@ -82,6 +83,7 @@ if __name__ == '__main__':
     # parser.add_argument('--mythic-chance', type=int, default=5, help="Percent chance of a mythic. Requires -p")
     parser.add_argument('set', action='append', help="Set code(s) to use to make packs. Pass more than one for chaos packs!")
     parser.add_argument('-n', '--count', action='store', type=int, default=1, help="How many packs to generate")
+    parser.add_argument('--json', help="Dump pack info to a json file")
 
     args = parser.parse_args()
     if args.debug:
@@ -107,6 +109,9 @@ if __name__ == '__main__':
         if args.randoms:
             pack.extend(random.choices(list(itertools.chain.from_iterable(sets[l][k] for k in ['mythic','rare','common','uncommon'] for l in sets.keys())), k=args.randoms))
         packs.append(pack)
+    if args.json:
+        with open(args.json, 'w') as f:
+            f.write(json.dumps(packs))
     pack_count = 0
     for p in packs:
         generate_pdf(p, 'pack_{p:03}.pdf'.format(p=pack_count))
